@@ -17,19 +17,37 @@
 <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
  <!-- jQuery -->
+ <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     
 </head>
 <body>
     <div class ="container">
-        <h1>Rock Paper Sissor </h1>
-        <input type="text">
-        <button>Start </button>
-        <div class="row">
-        
+        <h1>Rock Paper Scissors </h1>
+      <form formmethod="post">
+        <input type="text" value="Name">
+        <button type "submit" id ="start" >Start </button>
+        </form>
+      <div class="row" "rps-wrapper">
+              
           <div class="col">
-           Waiting for Player1
+           Waiting for Player One
+           <div class="button-wrapper">
+              <button type="submit" id = "rock">Rock</button>
+              <button type="submit"id = "paper">Paper</button>
+              <button type="submit"id = "scissors">Scissors</button>
+              <button type="submit" id="chat">Send</button>
+              <form class="chat-form">
+                <div class="input-group">
+                    <label for="message">Message:</label>
+                    <input id="message" placeholder="Type a message..." class="form-control" type="text">
+                </div>
+                <span >
+                    <button  type="submit" id="chat">Send</button>
+                </span>
+            </form>
+            </div>
            <!-- NOTE: create in HTML use css and JQuery to show and hide -->
             <!-- a container for our list of buttons 
                   this container will UL/li or div  hide if player has clicked the button -->
@@ -37,11 +55,27 @@
           </div>
           <div class="col">
           Scores 
+          <ul id="events"> game events </ul>
        
           </div>
           <div class="col">
-          Waiting for Player 2 
-        
+          Waiting for Player One 
+          <div class="button-wrapper">
+            <button type="submit" id = "rock">Rock</button>
+         <button type="submit"id = "paper">Paper</button>
+         <button type="submit"id = "scissors">Scissors</button>
+         <button type="submit" id="chat">Send</button>
+         <button id = "chat">Send Chat</button>
+                    <form class="chat-form">
+          <div class="input-group">
+              <label for="message" >Message:</label>
+              <input id="message" placeholder="Type a message..." class="form-control" type="text">
+          </div>
+          <span >
+              <button  type="submit" id="chat">Send</button>
+          </span>
+      </form>
+          </div>
           </div>
         </div>
     </div>
