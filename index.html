@@ -25,13 +25,14 @@
 <body>
     <div class ="container">
         <h1>Rock Paper Scissors </h1>
-      <form formmethod="post">
-        <input type="text" value="Name">
-        <button type "submit" id ="start" >Start </button>
-        </form>
+      <form role ="form">
+        <label for="name-input">Name:</label>
+        <input class="form-control" id="name-input" type="text">
+        <button type "submit" id ="add-player" >Start </button>
+    </form>
       <div class="row" "rps-wrapper">
               
-          <div class="col">
+          <div class="col" id="playerOne">
            Waiting for Player One
            <div class="button-wrapper">
               <button type="submit" id = "rock">Rock</button>
@@ -58,8 +59,8 @@
           <ul id="events"> game events </ul>
        
           </div>
-          <div class="col">
-          Waiting for Player One 
+          <div class="col" id="playerTwo">
+          Waiting for Player Two 
           <div class="button-wrapper">
             <button type="submit" id = "rock">Rock</button>
          <button type="submit"id = "paper">Paper</button>
