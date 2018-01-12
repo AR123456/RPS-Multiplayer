@@ -80,16 +80,16 @@ $(document).ready(function(){
           //write player1 name to html
           $("#playerTwo").html(Player2.name);
 
-//   send to database Player 2 to database
+          //   send to database Player 2 to database
            database.ref().set({
             Player2: Player2.name,
             
            })
            console.log(Player2.name);
-//write player2 name to html
+          //write player2 name to html
            $("#playerTwo").html(Player2.name);
 
-//and execute the  playGame function 
+        //and execute the  playGame function when there are 2 players 
             playGame();//play game function 
             
         } else{
@@ -99,7 +99,7 @@ $(document).ready(function(){
            console.log(Player1.name);
            //write player1 name to html
            $("#playerOne").html(Player1.name);
-       //   send to database 
+           //   send to database 
            database.ref().set({
            Player1: Player1.name,
   
@@ -108,10 +108,8 @@ $(document).ready(function(){
 
         }
       });  
-
-
-     // Don't refresh the page 
-      event.preventDefault();
+        // Don't refresh the page 
+         event.preventDefault();
 
     });// end of evaluating for player 
 
@@ -127,17 +125,22 @@ $(document).ready(function(){
             //shows waiting for ---name of player 2
             // changes player 2 area to its your turn 
             turn++;
-             } else {
-                // in player1 box area show rock,paper,scissor in HTML as buttons 
+             } else if  (turn = 2){
+               //For player 1 show waiting for player 2 ect 
+               
+                // in player2 box area show rock,paper,scissor in HTML as buttons 
                  //on click event selects rock , paper or scissor 
                  // sends choice to dbB
                  // shows choice in player two area
              }
+             //now both choices in the db 
              evaluateWinner();
               //run function to eval winner, 
             }
             
      function evaluateWinner(){
+       // need to get choices from database and apply this logic 
+
           // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
       if ((player1.guess === "rock") || (player1.guess === "paper") || (player1.guess === "scissors")) {
 
@@ -183,14 +186,6 @@ $(document).ready(function(){
         }
    
           } ;    
-    
-   //function to evaluate for winner pass in the guesses as peramitners , get parm from FB
-  //need click event for r,p,s button click will be same event for all three speciffiy in the evert 
-    //in this click event update firebase database ,change the playerview in HTML 
-    //if the game is over
-        //end game function call
-  
-  //events  store them in an object that matches the format of the firebase database 
     //custom functions
       //function is game over
       function gameOver(){
@@ -200,6 +195,8 @@ $(document).ready(function(){
        }; 
         //show final views and what video says to do next
     // chat message functions -add message   
+
+    //chat code here **********************
 
 
 }); //NO CODE BELOW THIS LINE END OF DOCUMENT READY 
