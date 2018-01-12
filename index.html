@@ -1,88 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Multiplayer RPS </title>
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-    crossorigin="anonymous">
-<!-- This bootstrap style sheet seems to work better  -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <!-- This bootstrap style sheet seems to work better  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
- <!-- jQuery -->
- <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    
+
 </head>
+
 <body>
-    <div class ="container">
+    <div class="container">
         <h1>Rock Paper Scissors </h1>
-      <form role ="form">
-        <label for="name-input">Name:</label>
-        <input class="form-control" id="name-input" type="text">
-        <button type "submit" id ="add-player" >Start </button>
-    </form>
-      <div class="row" "rps-wrapper">
-              
-          <div class="col" id="playerOne">
-           Waiting for Player One
-           <div class="button-wrapper">
-              <button type="submit" id = "rock">Rock</button>
-              <button type="submit"id = "paper">Paper</button>
-              <button type="submit"id = "scissors">Scissors</button>
-              <button type="submit" id="chat">Send</button>
-              <form class="chat-form">
-                <div class="input-group">
-                    <label for="message">Message:</label>
-                    <input id="message" placeholder="Type a message..." class="form-control" type="text">
-                </div>
-                <span >
-                    <button  type="submit" id="chat">Send</button>
-                </span>
-            </form>
-            </div>
-           <!-- NOTE: create in HTML use css and JQuery to show and hide -->
-            <!-- a container for our list of buttons 
-                  this container will UL/li or div  hide if player has clicked the button -->
-          <!-- Container to show after the player clicks a button(could even be an image of a r,p or s ) -->
-          </div>
-          <div class="col">
-          Scores 
-          <ul id="events"> game events </ul>
-       
-          </div>
-          <div class="col" id="playerTwo">
-          Waiting for Player Two 
-          <div class="button-wrapper">
-            <button type="submit" id = "rock">Rock</button>
-         <button type="submit"id = "paper">Paper</button>
-         <button type="submit"id = "scissors">Scissors</button>
-         <button type="submit" id="chat">Send</button>
-         <button id = "chat">Send Chat</button>
+        <form role="form">
+            <label for="name-input">Enter your name to play:</label>
+            <input class="form-control" id="name-input" type="text">
+            <button type "submit" id="add-player">Start </button>
+        </form>
+        <div class="row" "rps-wrapper">
+
+            <div class="col" id="playerOne">
+                Waiting for Player One
+                <div class="button-wrapper">
+                    <button type="submit" id="rock">Rock</button>
+                    <button type="submit" id="paper">Paper</button>
+                    <button type="submit" id="scissors">Scissors</button>
+                    <button type="submit" id="chat">Send Guess </button>
                     <form class="chat-form">
-          <div class="input-group">
-              <label for="message" >Message:</label>
-              <input id="message" placeholder="Type a message..." class="form-control" type="text">
-          </div>
-          <span >
-              <button  type="submit" id="chat">Send</button>
-          </span>
-      </form>
-          </div>
-          </div>
+                        <div class="input-group">
+                            <label for="message">Message:</label>
+                            <input id="message" placeholder="Type a message..." class="form-control" type="text">
+                        </div>
+                        <span>
+                            <button type="submit" id="chat">Send Chat </button>
+                        </span>
+                    </form>
+                </div>
+                <!-- NOTE: create in HTML use css and JQuery to show and hide -->
+                <!-- a container for our list of buttons 
+                  this container will UL/li or div  hide if player has clicked the button -->
+                <!-- Container to show after the player clicks a button(could even be an image of a r,p or s ) -->
+            </div>
+            <div class="col">
+                Scores
+                <ul id="events"> game events </ul>
+
+            </div>
+            <div class="col" id="playerTwo">
+                Waiting for Player Two
+                <div class="button-wrapper">
+                    <button type="submit" id="rock">Rock</button>
+                    <button type="submit" id="paper">Paper</button>
+                    <button type="submit" id="scissors">Scissors</button>
+                    <button type="submit" id="chat">Send Guess </button>
+                    <form class="chat-form">
+                        <div class="input-group">
+                            <label for="message">Message:</label>
+                            <input id="message" placeholder="Type a message..." class="form-control" type="text">
+                        </div>
+                        <span>
+                            <button type="submit" id="chat">Send Chat </button>
+                        </span>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-   <!-- Added link to the jQuery Library --> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- 
-<script src ="./assets/javascript/app.js" > </script>     
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="./assets/javascript/app.js"> </script>
 </body>
+
 </html>

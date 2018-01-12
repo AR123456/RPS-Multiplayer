@@ -46,7 +46,8 @@ $(document).ready(function(){
     var wins = 0;
     var losses = 0;
     var ties = 0;
-    var turn =1;
+    var turn =0;
+    
 
     //setting up player object to match the database 
     var Player1 = {
@@ -55,7 +56,8 @@ $(document).ready(function(){
         wins:0,
         losses:0,
         ties:0,
-        chat:""
+        chat:"",
+        turn:1
         }
     var Player2 = {
         name: "",
@@ -63,23 +65,27 @@ $(document).ready(function(){
         wins:0,
         losses:0,
         ties:0,
-        chat:""
+        chat:"",
+        turn:2
         } 
     // initial load starting game , compare value of on click to database to determine if player one or player two 
   // Capture Button Click to add players
   $("#add-player").on("click", function() {
     // get  player for Firebase .
-        name = $("#name-input").val().trim();
-        console.log(name);
-
     database.ref().on("value",function(snapshot){
         if (snapshot.child("Player1").exists()){
 
-//  make Player2 this name - send to database 
+          Player2.name = $("#name-input").val().trim();
+          console.log(Player2.name);
+          //write player1 name to html
+          $("#playerTwo").html(Player2.name);
+
+//   send to database Player 2 to database
            database.ref().set({
-            name: Player2.name,
-  
+            Player2: Player2.name,
+            
            })
+           console.log(Player2.name);
 //write player2 name to html
            $("#playerTwo").html(Player2.name);
 
@@ -87,16 +93,21 @@ $(document).ready(function(){
             playGame();//play game function 
             
         } else{
+          
            // make this name Player 1 - send to database
+           Player1.name = $("#name-input").val().trim();
+           console.log(Player1.name);
+           //write player1 name to html
+           $("#playerOne").html(Player1.name);
+       //   send to database 
            database.ref().set({
-            name: Player1.name,
+           Player1: Player1.name,
   
            })
 
-           // write it to HTML 
-           $("#playerOne").html(Player1.name);
 
         }
+      });  
 
 
      // Don't refresh the page 
@@ -128,34 +139,34 @@ $(document).ready(function(){
             
      function evaluateWinner(){
           // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
-      if ((player2.guess === “rock”) || (player1.guess === “paper”) || (player1.guess === “scissors”)) {
+      if ((player1.guess === "rock") || (player1.guess === "paper") || (player1.guess === "scissors")) {
 
-        if ((player1.guess === “rock”) && (player2.guess === “scissors”)) {
+        if ((player1.guess === "rock") && (player2.guess === "scissors")) {
           wins++;//player1
           losses++;//player2
           //update DB 
           //update HTML winner, new scores 
-        } else if ((player1.guess === “rock”) && (player2.guess === “paper”)) {
+        } else if ((player1.guess === "rock") && (player2.guess === "paper")) {
           losses++;//player1
           wins++;//player2
               //update DB 
           //update HTML winner, new scores 
-        } else if ((player1.guess === “scissors”) && (player2.guess === “rock”)) {
+        } else if ((player1.guess === "scissors") && (player2.guess === "rock")) {
           losses++;//player1
           wins++;//player2
               //update DB 
           //update HTML winner, new scores 
-        } else if ((player1.guess === “scissors”) && (player2.guess === “paper”)) {
+        } else if ((player1.guess === "scissors") && (player2.guess === "paper")) {
           wins++;//player1
           losses++;//player2
            //update DB 
           //update HTML winner, new scores 
-        } else if ((player1.guess === “paper”) && (player2.guess === “rock”)) {
+        } else if ((player1.guess === "paper") && (player2.guess === "rock")) {
           wins++;//player1
           losses++;//player2
               //update DB 
           //update HTML winner, new scores 
-        } else if ((player1.guess === “paper”) && (player2.guess === “scissors”)) {
+        } else if ((player1.guess === "paper") && (player2.guess === "scissors")) {
           losses++;//player1
           wins++;//player2
               //update DB 
@@ -164,9 +175,14 @@ $(document).ready(function(){
           ties++;//both players 
               //update DB 
           //update HTML winner, new scores 
+          }
+
+               // set turn back to 1 to start another round 
+          turn =1;
+
         }
-       turn=1; 
-        }   }     
+   
+          } ;    
     
    //function to evaluate for winner pass in the guesses as peramitners , get parm from FB
   //need click event for r,p,s button click will be same event for all three speciffiy in the evert 
