@@ -17,29 +17,26 @@
 
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-2.2.3.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-</head>
 
 <body>
     <div class="container">
+        <div id="playerGreeting">
         <h1>Rock Paper Scissors </h1>
         <form role="form">
             <label for="name-input">Enter your name to play:</label>
             <input class="form-control" id="name-input" type="text">
             <button type "submit" id="add-player">Start </button>
         </form>
+    </div>
         <div class="row" "rps-wrapper">
 
             <div class="col" id="playerOne">
                 Waiting for Player One
+
                 <div class="button-wrapper">
-                    <button type="submit" id="rock">Rock</button>
-                    <button type="submit" id="paper">Paper</button>
-                    <button type="submit" id="scissors">Scissors</button>
+                    <button type="submit" id="rock1">Rock</button>
+                    <button type="submit" id="paper1">Paper</button>
+                    <button type="submit" id="scissors1">Scissors</button>
                     <button type="submit" id="chat">Send Guess </button>
                     <form class="chat-form">
                         <div class="input-group">
@@ -64,14 +61,14 @@
             <div class="col" id="playerTwo">
                 Waiting for Player Two
                 <div class="button-wrapper">
-                    <button type="submit" id="rock">Rock</button>
-                    <button type="submit" id="paper">Paper</button>
-                    <button type="submit" id="scissors">Scissors</button>
+                    <button type="submit" id="rock2">Rock</button>
+                    <button type="submit" id="paper2">Paper</button>
+                    <button type="submit" id="scissors3">Scissors</button>
                     <button type="submit" id="chat">Send Guess </button>
                     <form class="chat-form">
                         <div class="input-group">
                             <label for="message">Message:</label>
-                            <input id="message" placeholder="Type a message..." class="form-control" type="text">
+                            <input id="message-input" placeholder="Type a message..." class="form-control" type="text">
                         </div>
                         <span>
                             <button type="submit" id="chat">Send Chat </button>
