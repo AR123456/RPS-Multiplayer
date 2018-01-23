@@ -1,10 +1,10 @@
 //add a turn indicator to the firebase database
 
 //app needs place for both players to enter their name and click start -
-// Then display in HTML HI ___! You are Player 1  on next line Its your turn show Player 1 then from the condole on left with her name at top and the Rock Paper Scissors choices bellow and then a summary of that players wins, losses and ties. Show Player 2's box on right with that players wins losses and ties at bottom.  Middle box is empty 
-// player 2 sees Hi ___! you are player 2 , then next line Waiting for ____ to chose. at the bottom of the box is player 2's wins ties losses . Middle box is empty 
+// Then display in HTML HI ___! You are Player 1  on next line Its your turn show Player 1 teh fame cos on left with her name at top and the Rock Paper Scissors choices bellow and then a summary of that players wins, losses and ties. Show Player 2,s box on right with that player wins losses and ties at bottom.  Middle box is empty 
+// player 2 sees Hi ___1 you are player 2 , then next line Waiting for ____ to chose. at the bottom of the box is player 2's wins ties losses . Middle box is empty 
 // chat box is open at the bottom of the play area with an entry screen,send button and a larger box that displays the conversation 
-// after player one chooses she sees what she picked but player 2 doesn't, she then gets waiting for __ to choose.  
+// after player one chooses she sees what she picked but player 2 dosen't, she then gets waiting for __ to choose.  
 // player 2 now gets the choices box populated  and its your turn ot choose 
 // winner is displayed in middle box, looked like click in middle box started another round
 // working chat box
@@ -26,7 +26,7 @@ $(document).ready(function(){
   firebase.initializeApp(config);
     //create the connection to Firebase 
   firebase.database().ref().on('value',function(snapshot){
-         //console.log(snapshot.val());
+        // console.log(snapshot.val());
     }) ;
   //variables
     // Get a reference to the database service
@@ -58,27 +58,24 @@ $(document).ready(function(){
     // initial load starting game , compare value of on click to database to determine if player one or player two 
   // Capture Button Click to add players
   $("#add-player").on("click", function() {
-   // console.log("The start button has been clicked")
-    // Don't refresh the page  so the text is not cleared from game
-    event.preventDefault();
+    console.log("The start button has been clicked")
+    // Don't refresh the page 
+    // event.preventDefault();
     var player = new Player($("#name-input").val().trim());
      player.playerNumber ++;
      player.turn ++;
     
     if (player.playerNumber ===1)
-    $("#playerGreeting").append("Hello "+player.name+" you are player one!");
           player.playerNumber ++;
           player.turn ++;
      //if player one is in db ...
       //player.playerNumber = 2;
       //do any other player 2 stuff 
-
     //else
       //player.playerNumber = 1;
       //do any other player one stuff
     if(player.playerNumber === 2) {
       //prevent form new user from takeing any more users
-   $("#playerGreeting").append("Hello "+player.name+" you are player two!");
       //do any other stuff to set up game start
     }
     //add the player to the db 
@@ -161,8 +158,6 @@ $(document).ready(function(){
             //a player leave game put disconnect message in chat
            // make remaining player player one
             // if another player joins re start game 
-          //clear the players out of the DB 
-          RPS.player.removeOnDisconnect();  
        }; 
         //show final views and what video says to do next
     // chat message functions -add message   
