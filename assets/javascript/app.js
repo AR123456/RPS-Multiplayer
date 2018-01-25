@@ -158,6 +158,8 @@ $(document).ready(function(){
             //a player leave game put disconnect message in chat
            // make remaining player player one
             // if another player joins re start game 
+            //remove player from db when they leave the game 
+            player.onDisconnect().remove();  
        }; 
         //show final views and what video says to do next
     // chat message functions -add message   
