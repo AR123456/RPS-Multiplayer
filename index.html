@@ -19,63 +19,57 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Rock Paper Scissors </h1>
-        <form role="form">
-            <label for="name-input">Enter your name to play:</label>
-            <input class="form-control" id="name-input" type="text">
-            <button type "submit" id="add-player">Start </button>
-        </form>
-        <div class="row" "rps-wrapper">
+    
+    <header>
+        <h1>Rock Paper Scissors</h1>
+      </header>
 
-            <div class="col" id="playerOne">
-                Waiting for Player One
+  
+      <div id="sizer">
 
-                <div class="button-wrapper">
-                    <button type="submit" id="rock1">Rock</button>
-                    <button type="submit" id="paper1">Paper</button>
-                    <button type="submit" id="scissors1">Scissors</button>
-                    <button type="submit" id="chat">Send Guess </button>
-                    <form class="chat-form">
-                        <div class="input-group">
-                            <label for="message">Message:</label>
-                            <input id="message" placeholder="Type a message..." class="form-control" type="text">
-                        </div>
-                        <span>
-                            <button type="submit" id="chat">Send Chat </button>
-                        </span>
-                    </form>
-                </div>
-                <!-- NOTE: create in HTML use css and JQuery to show and hide -->
-                <!-- a container for our list of buttons 
-                  this container will UL/li or div  hide if player has clicked the button -->
-                <!-- Container to show after the player clicks a button(could even be an image of a r,p or s ) -->
-            </div>
-            <div class="col">
-                Scores
-                <ul id="events"> game events </ul>
-
-            </div>
-            <div class="col" id="playerTwo">
-                Waiting for Player Two
-                <div class="button-wrapper">
-                    <button type="submit" id="rock2">Rock</button>
-                    <button type="submit" id="paper2">Paper</button>
-                    <button type="submit" id="scissors3">Scissors</button>
-                    <button type="submit" id="chat">Send Guess </button>
-                    <form class="chat-form">
-                        <div class="input-group">
-                            <label for="message">Message:</label>
-                            <input id="message-input" placeholder="Type a message..." class="form-control" type="text">
-                        </div>
-                        <span>
-                            <button type="submit" id="chat">Send Chat </button>
-                        </span>
-                    </form>
-                </div>
-            </div>
+        <div id="swap-zone"><input id="username" placeholder="Name"/>
+          <button id="start">Start</button>
         </div>
-    </div>
+  
+        <div id="current-turn"></div>
+  
+        <div id="game-div">
+  
+          <div id="player1">
+            <h3 id="player1-name">Player1</h3>
+            <ul>
+            </ul>
+            <div id="player1-chosen"></div>
+            <div class="outcomes">
+              <div class="outcome-trackers" id="player1-wins"></div>
+              <div class="outcome-trackers" id="player1-losses"></div>
+            </div>
+          </div>
+  
+          <div id="result"></div>
+  
+          <div id="player2">
+            <h3 id="player2-name">Player2</h3>
+            <ul>
+            </ul>
+            <div id="player2-chosen"></div>
+            <div class="outcomes">
+              <div class="outcome-trackers" id="player2-wins"></div>
+              <div class="outcome-trackers" id="player2-losses"></div>
+            </div>
+          </div>
+  
+        </div>
+  
+        <div id="chat">
+          <div id="chat-messages"></div>
+          <div id="chat-bar">
+          <input id="chat-input"/>
+            </div>
+            <button id="chat-send">Send</button>
+        </div>
+  
+      </div>
     <!-- Added link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
