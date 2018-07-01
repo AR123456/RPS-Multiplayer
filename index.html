@@ -3,16 +3,23 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Multiplayer Rocks Paper Scissors</title>
   <!-- CSS reset sheet -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <!-- bootswatch -->
+  <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/cyborg/bootstrap.min.css" rel="stylesheet" integrity="sha384-iMvB1cubutqnCw/Xlf3A1lEXHojPMC7dETFR9CYfYENKn8yw6QlyL+BaYmPXEjmo"
+    crossorigin="anonymous">
+
   <!-- Our Own CSS File -->
   <link rel="stylesheet" href="style.css">
   <!-- Firebase Link -->
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 </head>
 
-<body>
+<body class="container container-fluid">
 
   <header>
     <h1>Rock Paper Scissors</h1>
@@ -22,7 +29,7 @@
 
     <div id="swap-zone">
       <input id="username" placeholder="Name" />
-      <button id="start">Start</button>
+      <button id="start" class="btn btn-danger">Start</button>
     </div>
 
     <div id="current-turn"></div>
@@ -55,21 +62,24 @@
 
     </div>
 
-    <div id="chat">
-      <div id="chat-messages"></div>
+    <div id="chat" class="card">
+      <img class="card-img-top" src="RPS.jpg" alt="Card image cap">
+      <div class="card-body"></div>
+      <div id="chat-messages"> </div>
       <div id="chat-bar">
-        <input id="chat-input" />
-        <button id="chat-send">Send</button>
+        <input id=" chat-input" />
+        <button id="chat-send" class="btn btn-danger">Send</button>
       </div>
     </div>
+  </div>
 
   </div>
 
   <!-- jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
 
   <!-- Script -->
-  <script src="app.js"></script>
+  <script src="app.js "></script>
 
 </body>
 

@@ -184,7 +184,7 @@ currentTurnRef.on("value", function(snapshot) {
       if (currentTurn === playerNum) {
         $("#current-turn").html("<h2>It's Your Turn!</h2>");
         $("#player" + playerNum + " ul").append(
-          "<li>Rock</li><li>Paper</li><li>Scissors</li>"
+          "<div class='card'><li><img class='card-img-top'src='rock.png'alt='Card image cap'>Rock</li><li><img class='card-img-top'src='paper.png'alt='Card image cap'>Paper</li><li><img class='card-img-top'src='scissors.png'alt='Card image cap'>Scissors</li></div>"
         );
       } else {
         // If it isnt the current players turn, tells them theyre waiting for player one
@@ -201,7 +201,7 @@ currentTurnRef.on("value", function(snapshot) {
       if (currentTurn === playerNum) {
         $("#current-turn").html("<h2>It's Your Turn!</h2>");
         $("#player" + playerNum + " ul").append(
-          "<li>Rock</li><li>Paper</li><li>Scissors</li>"
+          "<li><img class='card-img-top'src='rock.png'alt='Card image cap'>Rock</li><li><img class='card-img-top'src='paper.png'alt='Card image cap'>Paper</li><li><img class='card-img-top'src='scissors.png'alt='Card image cap'>Scissors</li>"
         );
       } else {
         // If it isnt the current players turn, tells them theyre waiting for player two
